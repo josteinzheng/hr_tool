@@ -1,0 +1,33 @@
+<%= form_for(@used_annual_leave_info) do |f| %>
+  <% if @used_annual_leave_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@used_annual_leave_info.errors.count, "error") %> prohibited this used_annual_leave_info from being saved:</h2>
+
+      <ul>
+      <% @used_annual_leave_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :when %><br>
+    <%= f.datetime_select :when %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :whichyear %><br>
+    <%= f.text_field :whichyear %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id %><br>
+    <%= f.number_field :employee_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

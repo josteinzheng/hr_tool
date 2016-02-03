@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Used Annual Leave Infos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Number</th>
+      <th>Whichyear</th>
+      <th>Employee</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @used_annual_leave_infos.each do |used_annual_leave_info| %>
+      <tr>
+        <td><%= used_annual_leave_info.when %></td>
+        <td><%= used_annual_leave_info.number %></td>
+        <td><%= used_annual_leave_info.whichyear %></td>
+        <td><%= used_annual_leave_info.employee_id %></td>
+        <td><%= link_to 'Show', used_annual_leave_info %></td>
+        <td><%= link_to 'Edit', edit_used_annual_leave_info_path(used_annual_leave_info) %></td>
+        <td><%= link_to 'Destroy', used_annual_leave_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Used annual leave info', new_used_annual_leave_info_path %>

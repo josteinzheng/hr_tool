@@ -1,0 +1,2 @@
+module UsedAnnualLeaveInfosHelper
+end

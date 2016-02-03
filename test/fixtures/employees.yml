@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  staffno: MyString
+  start_work_date: 2016-02-03 22:45:07
+  hiredate: 2016-02-03 22:45:07
+  statutory: 1
+  extra: 1
+  bonus: 1
+  used: 1
+  remain: 1
+
+two:
+  name: MyString
+  staffno: MyString
+  start_work_date: 2016-02-03 22:45:07
+  hiredate: 2016-02-03 22:45:07
+  statutory: 1
+  extra: 1
+  bonus: 1
+  used: 1
+  remain: 1
