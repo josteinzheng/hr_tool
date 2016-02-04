@@ -1,33 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Used Annual Leave Infos</h1>
+<div class="col-1">
+    <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
+    <i class="fa fa-times"></i>
+    <div class="panel-heading templatemo-position-relative">
+        <h2 class="text-uppercase">Listing Employees</h2>
+    </div>
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>员工号</th>
+          <th>休假日期</th>
+          <th>休假天数</th>
+          <th>哪年的年假</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>When</th>
-      <th>Number</th>
-      <th>Whichyear</th>
-      <th>Employee</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @used_annual_leave_infos.each do |used_annual_leave_info| %>
-      <tr>
-        <td><%= used_annual_leave_info.when %></td>
-        <td><%= used_annual_leave_info.number %></td>
-        <td><%= used_annual_leave_info.whichyear %></td>
-        <td><%= used_annual_leave_info.employee_id %></td>
-        <td><%= link_to 'Show', used_annual_leave_info %></td>
-        <td><%= link_to 'Edit', edit_used_annual_leave_info_path(used_annual_leave_info) %></td>
-        <td><%= link_to 'Destroy', used_annual_leave_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Used annual leave info', new_used_annual_leave_info_path %>
+      <tbody>
+        <% @used_annual_leave_infos.each do |info| %>
+              <tr>
+                <td><%= info.employee_id %></td>
+                <td><%= info.when %></td>
+                <td><%= info.number %></td>
+                <td><%= info.whichyear %></td>
+              </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+</div>
