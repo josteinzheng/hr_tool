@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
-  resources :used_annual_leave_infos
+
+	root 'employees#index'
+
+	get 'employees_manage' => 'employees#new'
+
+	get 'records' => 'used_annual_leave_infos#index'
+
+	get 'records_manage' => 'used_annual_leave_infos#new'
 
   resources :employees
 
+	resources :used_annual_leave_infos
+
+  #   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
