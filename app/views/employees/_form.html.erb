@@ -12,40 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "姓名" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :staffno %><br>
+    <%= f.label '工号' %><br>
     <%= f.text_field :staffno %>
   </div>
   <div class="field">
-    <%= f.label :start_work_date %><br>
-    <%= f.datetime_select :start_work_date %>
+    <%= f.label '工龄' %><br>
+    <%= f.number_field :seniority %>
   </div>
   <div class="field">
-    <%= f.label :hiredate %><br>
-    <%= f.datetime_select :hiredate %>
-  </div>
-  <div class="field">
-    <%= f.label :statutory %><br>
-    <%= f.number_field :statutory %>
-  </div>
-  <div class="field">
-    <%= f.label :extra %><br>
-    <%= f.number_field :extra %>
-  </div>
-  <div class="field">
-    <%= f.label :bonus %><br>
-    <%= f.number_field :bonus %>
-  </div>
-  <div class="field">
-    <%= f.label :used %><br>
-    <%= f.number_field :used %>
-  </div>
-  <div class="field">
-    <%= f.label :remain %><br>
-    <%= f.number_field :remain %>
+    <%= f.label '入职日期' %><br>
+    <%= f.text_field :hiredate %>
   </div>
   <div class="actions">
     <%= f.submit %>

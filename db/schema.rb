@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208154121) do
+ActiveRecord::Schema.define(version: 20160208183652) do
 
   create_table "annual_leave_change_records", force: :cascade do |t|
     t.string   "type"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20160208154121) do
   create_table "employees", force: :cascade do |t|
     t.string   "name"
     t.string   "staffno"
-    t.datetime "start_work_date"
     t.datetime "hiredate"
     t.integer  "statutory"
     t.integer  "extra"
@@ -37,6 +36,8 @@ ActiveRecord::Schema.define(version: 20160208154121) do
     t.integer  "remain"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "last_year_left"
+    t.integer  "start_work_year"
   end
 
 end

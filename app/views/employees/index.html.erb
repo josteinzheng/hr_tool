@@ -13,12 +13,12 @@
           <th>姓名</th>
           <th>员工号</th>
           <th>工龄</th>
-          <th>雇佣日期</th>
-          <th>法定年假</th>
-          <th>额外年假</th>
-          <th>奖励年假</th>
-          <th>已休年假</th>
-          <th>剩余年假</th>
+          <th>入职日期</th>
+          <th>法定</th>
+          <th>额外</th>
+          <th>奖励</th>
+          <th>已休</th>
+          <th>剩余</th>
         </tr>
       </thead>
 
@@ -27,8 +27,8 @@
           <tr>
             <td><%= employee.name %></td>
             <td><%= employee.staffno %></td>
-            <td><%= employee.start_work_date %></td>
-            <td><%= employee.hiredate %></td>
+            <td><%= employee.seniority %></td>
+            <td><%= employee.hiredate.strftime("%Y-%m") %></td>
             <td><%= employee.statutory %></td>
             <td><%= employee.extra %></td>
             <td><%= employee.bonus %></td>

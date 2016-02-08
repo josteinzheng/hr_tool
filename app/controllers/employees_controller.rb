@@ -25,16 +25,13 @@ class EmployeesController < ApplicationController
   # POST /employees.json
   def create
     @employee = Employee.new(employee_params)
-
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render :show, status: :created, location: @employee }
-      else
-        format.html { render :new }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
-    end
+		if @employee.save
+			#TODO
+			redirect_to employees_url
+		else
+			#TODO
+			render :new
+		end
   end
 
   # PATCH/PUT /employees/1
@@ -69,6 +66,6 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:name, :staffno, :start_work_date, :hiredate, :statutory, :extra, :bonus, :used, :remain)
+      params.require(:employee).permit(:name, :staffno, :seniority, :hiredate, :last_year_left)
     end
 end
