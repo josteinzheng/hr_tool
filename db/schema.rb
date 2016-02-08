@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203145105) do
+ActiveRecord::Schema.define(version: 20160203144507) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
@@ -25,15 +25,6 @@ ActiveRecord::Schema.define(version: 20160203145105) do
     t.integer  "remain"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end
-
-  create_table "used_annual_leave_infos", force: :cascade do |t|
-    t.datetime "when"
-    t.integer  "number"
-    t.string   "whichyear"
-    t.integer  "employee_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
 end
