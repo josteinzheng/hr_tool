@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203144507) do
+ActiveRecord::Schema.define(version: 20160208154121) do
+
+  create_table "annual_leave_change_records", force: :cascade do |t|
+    t.string   "type"
+    t.datetime "when"
+    t.integer  "number"
+    t.datetime "which_year"
+    t.integer  "employee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "annual_leave_change_records", ["employee_id"], name: "index_annual_leave_change_records_on_employee_id"
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"

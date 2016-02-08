@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
 	get 'employees_manage' => 'employees#new'
 
-	get 'records' => '#'
+  get 'records' => 'annual_leave_change_records#index'
 
-	get 'records_manage' => '#'
+  get 'records_manage' => 'annual_leave_change_records#new'
 
   resources :employees
+
+	resources :annual_leave_change_records
 
   #   resources :products
   # The priority is based upon order of creation: first created -> highest priority.

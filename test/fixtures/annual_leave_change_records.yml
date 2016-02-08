@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  when: 2016-02-08 23:41:21
+  number: 1
+  which_year: 2016-02-08 23:41:21
+  employee_id: 
+
+two:
+  type: 
+  when: 2016-02-08 23:41:21
+  number: 1
+  which_year: 2016-02-08 23:41:21
+  employee_id: 
