@@ -27,15 +27,17 @@
                 <tbody>
                 <% @employees.each do |employee| %>
                     <tr>
-                        <td><%= employee.name %></td>
+                        <td><%= employee.name  %></td>
                         <td><%= employee.staffno %></td>
                         <td><%= employee.seniority %></td>
                         <td><%= employee.hiredate.strftime("%Y-%m-%d") %></td>
                         <td><%= employee.last_year_left %></td>
                         <td><%= employee.statutory %></td>
-                        <td><%= employee.extra %></td>
+                        <td><%= employee.extra %>
+                            <%= link_to ' +', new_annual_leave_change_record_url(:employee_id => employee.id)  %></td>
                         <td><%= employee.bonus %></td>
-                        <td><%= employee.used %></td>
+                        <td><%= employee.used %>
+                            <%= link_to ' +', new_annual_leave_change_record_url(:employee_id => employee.id)  %></td>
                         <td><%= employee.remain %></td>
                     </tr>
                 <% end %>

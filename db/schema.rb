@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209225127) do
+ActiveRecord::Schema.define(version: 20160210142455) do
 
   create_table "annual_leave_change_records", force: :cascade do |t|
-    t.string   "type"
+    t.integer  "kind"
     t.datetime "when"
-    t.integer  "number"
-    t.datetime "which_year"
+    t.float    "number"
+    t.integer  "which_year"
     t.integer  "employee_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
