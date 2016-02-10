@@ -22,8 +22,8 @@ class Employee < ActiveRecord::Base
 		employee.statutory = 0.0
 		employee.bonus = 0.0
 
-		employee.extra = 0.0#TODO 从另一个年假变动表统计得出
-		employee.used = 0.0#TODO 从另一个年假变动表统计得出
+		employee.extra = employee.annual_leave_change_records.where(kind: AnnualLeaveChangeRecord::KIND_EXTRA).sum(:number)
+		employee.used = employee.annual_leave_change_records.where(kind: AnnualLeaveChangeRecord::KIND_USED).sum(:number)
 		employee.statutory = getStatutory
 		employee.bonus = getBonus(employee)
 		employee.remain = employee.last_year_left + employee.statutory + employee.extra + employee.bonus - employee.used
