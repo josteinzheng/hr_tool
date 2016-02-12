@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+
 	root 'employees#index'
 
-	get 'employees_manage' => 'employees#new'
+	get 'employees_manage' => 'employees_manage#index'
+	post 'employees_manage' => 'employees_manage#create'
 
   get 'records' => 'annual_leave_change_records#index'
 

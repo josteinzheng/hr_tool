@@ -9,6 +9,12 @@ class Employee < ActiveRecord::Base
 	              :used, #已休年假
 	              :remain #剩余年假
 
+	COLUMN_NAME = 'name'                        #姓名
+	COLUMN_STAFFNO = 'staffno'                  #员工号
+	COLUMN_SENIORITY = 'seniority'              #工龄
+	COLUMN_HIREDATE = "hiredate"                #入职日期
+	COLUMN_LAST_YEAR_LEFT = "last_year_left"    #去年剩余年假
+
 	def seniority
 		@seniority.nil? ? Time.now.year.to_i - self.start_work_year.to_i : @seniority
 	end
