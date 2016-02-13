@@ -1,5 +1,6 @@
 class AnnualLeaveChangeRecordsController < ApplicationController
 	def index
+		@records = AnnualLeaveChangeRecord.all
 	end
 
 	def new
