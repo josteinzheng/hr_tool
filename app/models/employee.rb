@@ -1,5 +1,18 @@
 class Employee < ActiveRecord::Base
-	has_many :annual_leave_change_records
+	has_many :annual_leave_change_records, dependent: :destroy
+
+	validates :name, presence: true
+	validates :staffno, uniqueness: true,
+											length: { is: 8 }
+	validates :hiredate, presence: true
+	validates :seniority, numericality: {
+													only_integer: true,
+													greater_than_or_equal_to: 0,
+													less_than_or_equal_to: 35
+												}
+
+	validates :last_year_left, presence: true,
+															numericality: true
 
 	#当前工龄
 	attr_accessor :seniority, #工龄
@@ -15,15 +28,12 @@ class Employee < ActiveRecord::Base
 	COLUMN_HIREDATE = "hiredate"                #入职日期
 	COLUMN_LAST_YEAR_LEFT = "last_year_left"    #去年剩余年假
 
-	def seniority
-		@seniority.nil? ? Time.now.year.to_i - self.start_work_year.to_i : @seniority
-	end
-
 	before_save {
 		self.start_work_year = Time.now.year.to_i - self.seniority.to_i
 	}
 
 	after_find do |employee|
+		employee.seniority = Time.now.year.to_i - self.start_work_year.to_i;
 		employee.last_year_left ||= 0.0
 		employee.statutory = 0.0
 		employee.bonus = 0.0

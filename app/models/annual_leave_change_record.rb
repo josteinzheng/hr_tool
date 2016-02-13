@@ -1,5 +1,10 @@
 class AnnualLeaveChangeRecord < ActiveRecord::Base
   belongs_to :employee
+  validates :kind, presence: true,
+	                  inclusion: { in: [1, 2] }
+  validates :when, presence: true
+  validates :number, presence: true,
+                      numericality: true
 
 	KIND_USED = 1
 	KIND_EXTRA = 2

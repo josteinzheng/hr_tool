@@ -18,6 +18,7 @@ class EmployeeImport
 
 	def save
 		if imported_employees.map(&:valid?).all?
+			#TODO 判断导入的员工列表里是否有重复的员工号
 			imported_employees.each(&:save!)
 			true
 		else

@@ -18,6 +18,7 @@ class AnnualLeaveChangeRecordImport
 
 	def save
 		if imported_records.map(&:valid?).all?
+			#TODO 休假天数不能超过剩余年假
 			imported_records.each(&:save!)
 			true
 		else
