@@ -1,4 +1,5 @@
 class AnnualLeaveChangeRecordsController < ApplicationController
+	before_action :logged_in_user
 	def index
 		@records = AnnualLeaveChangeRecord.all
 	end

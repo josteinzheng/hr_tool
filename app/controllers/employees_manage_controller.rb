@@ -1,4 +1,6 @@
 class EmployeesManageController < ApplicationController
+	before_action :logged_in_user
+
 	def index
 		@employee_import = EmployeeImport.new
 	end

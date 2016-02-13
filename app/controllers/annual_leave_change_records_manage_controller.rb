@@ -1,4 +1,6 @@
 class AnnualLeaveChangeRecordsManageController < ApplicationController
+	before_action :logged_in_user
+	
 	def index
 		@record_import = AnnualLeaveChangeRecordImport.new
 	end

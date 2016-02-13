@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 	root 'employees#index'
 
 	get 'employees_manage' => 'employees_manage#index'
@@ -10,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'records_manage' => 'annual_leave_change_records_manage#index'
   post 'records_manage' => 'annual_leave_change_records_manage#import'
+
+	get 'login' => 'sessions#new'
+	post 'login' => 'sessions#create'
+	delete 'logout' => 'sessions#destroy'
 
   resources :employees
 
