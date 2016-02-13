@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   get 'records' => 'annual_leave_change_records#index'
 
-  get 'records_manage' => 'annual_leave_change_records#new'
+  get 'records_manage' => 'annual_leave_change_records_manage#index'
+  post 'records_manage' => 'annual_leave_change_records_manage#import'
 
   resources :employees
 

@@ -1,0 +1,41 @@
+<h1>年假变动记录导入</h1>
+
+<p>导入文件格式为excel表格，表格第一行为表头，表格格式如下(括号及括号中内容为说明)：</p>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th><%= AnnualLeaveChangeRecord::COLUMN_STAFFNO %>(员工号)</th>
+        <th><%= AnnualLeaveChangeRecord::COLUMN_KIND %>(变更类型：1-休假，2-新增)</th>
+        <th><%= AnnualLeaveChangeRecord::COLUMN_WHEN %>(变更日期)</th>
+        <th><%= AnnualLeaveChangeRecord::COLUMN_NUMBER %>(天数)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>10010123</td>
+        <td>1</td>
+        <td>20130101</td>
+        <td>2.5</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<%= form_for @record_import, url: records_manage_path do |f| %>
+    <% if @record_import.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@record_import.errors.count, "error") %> prohibited this import from completing:</h2>
+            <ul>
+                <% @record_import.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.file_field :file %>
+    </div>
+    <div class="buttons"><%= f.submit "导入" %></div>
+<% end %>
