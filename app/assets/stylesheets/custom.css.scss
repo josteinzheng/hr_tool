@@ -56,22 +56,6 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
-}
-
 /* footer */
 footer {
   margin-top: 45px;
@@ -127,18 +111,8 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
   margin-bottom: 15px;
   @include box_sizing
 }

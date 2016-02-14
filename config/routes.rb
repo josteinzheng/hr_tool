@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 	root 'employees#index'
 
+	get 'query' => 'query#index'
+
 	get 'employees_manage' => 'employees_manage#index'
 	post 'employees_manage' => 'employees_manage#create'
 

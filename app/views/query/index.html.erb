@@ -1,0 +1,58 @@
+<!-- Search box -->
+<form class="templatemo-search-form" role="search">
+    <div class="input-group">
+        <button type="submit" class="fa fa-search"></button>
+        <input type="text" class="form-control" placeholder="请输入完整员工号" name="employee_number" id="staffno_search">
+    </div>
+</form>
+<table class="table table-striped table-bordered">
+    <tbody>
+    <% if !@employee.nil? %>
+        <tr>
+            <td>姓名</td>
+            <td><%= @employee.name %></td>
+        </tr>
+        <tr>
+            <td>员工号</td>
+            <td><%= @employee.staffno %></td>
+        </tr>
+        <tr>
+            <td>工龄</td>
+            <td><%= @employee.seniority %></td>
+        </tr>
+        <tr>
+            <td>入职日期</td>
+            <td><%= @employee.hiredate.strftime("%Y-%m-%d") %></td>
+        </tr>
+        <tr>
+            <td>去年剩余</td>
+            <td><%= @employee.last_year_left %></td>
+        </tr>
+        <tr>
+            <td>法定</td>
+            <td><%= @employee.statutory %></td>
+        </tr>
+        <tr>
+            <td>额外</td>
+            <td><%= @employee.extra %>
+        </tr>
+        <tr>
+            <td>奖励</td>
+            <td><%= @employee.bonus %></td>
+        </tr>
+        <tr>
+            <td>已休</td>
+            <td><%= @employee.used %>
+        </tr>
+        <tr>
+            <td>剩余</td>
+            <td><%= @employee.remain %></td>
+        </tr>
+    <% elsif @empty_param %>
+    <% else %>
+        <p>
+            无该员工信息
+        </p>
+    <% end %>
+    </tbody>
+</table>
