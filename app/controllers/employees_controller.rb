@@ -6,6 +6,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
+		@includeLastYear = Setting.first.includeLastYear
   end
 
   # GET /employees/1

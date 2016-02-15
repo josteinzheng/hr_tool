@@ -16,7 +16,9 @@
                     <th>员工号</th>
                     <th>工龄</th>
                     <th>入职日期</th>
-                    <th>去年剩余</th>
+                    <% if @includeLastYear %>
+                        <th>去年剩余</th>
+                    <% end %>
                     <th>法定</th>
                     <th>额外</th>
                     <th>奖励</th>
@@ -32,7 +34,9 @@
                         <td><%= employee.staffno %></td>
                         <td><%= employee.seniority %></td>
                         <td><%= employee.hiredate.strftime("%Y-%m-%d") %></td>
-                        <td><%= employee.last_year_left %></td>
+                        <% if @includeLastYear %>
+                            <td><%= employee.last_year_left %></td>
+                        <% end %>
                         <td><%= employee.statutory %></td>
                         <td><%= employee.extra %>
                             <%= link_to ' +', new_annual_leave_change_record_url(:employee_id => employee.id)  %></td>

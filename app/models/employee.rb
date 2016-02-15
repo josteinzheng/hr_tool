@@ -34,12 +34,42 @@ class Employee < ActiveRecord::Base
 
 	after_find do |employee|
 		employee.seniority = Time.now.year.to_i - self.start_work_year.to_i;
+		includeLastYear = Setting.first.includeLastYear
+		if includeLastYear
+			initAnnualLeaveInfoIncludeLastYear(employee)
+		else
+			initAnnualLeaveInfoWithoutLastYear(employee)
+		end
+	end
+
+	def initAnnualLeaveInfoIncludeLastYear(employee)
 		employee.last_year_left ||= 0.0
 		employee.statutory = 0.0
 		employee.bonus = 0.0
 
-		employee.extra = employee.annual_leave_change_records.where(kind: AnnualLeaveChangeRecord::KIND_EXTRA).sum(:number)
-		employee.used = employee.annual_leave_change_records.where(kind: AnnualLeaveChangeRecord::KIND_USED).sum(:number)
+		this_year_i = Time.now.year.to_i
+		last_year_i = this_year_i - 1
+		employee.extra = employee.annual_leave_change_records.where(
+			kind: AnnualLeaveChangeRecord::KIND_EXTRA, which_year: (last_year_i..this_year_i)).sum(:number)
+		employee.used = employee.annual_leave_change_records.where(
+			kind: AnnualLeaveChangeRecord::KIND_USED, which_year: (last_year_i..this_year_i)).sum(:number)
+		employee.statutory = getStatutory
+		employee.bonus = getBonus(employee)
+		employee.remain = employee.last_year_left + employee.statutory + employee.extra + employee.bonus - employee.used
+	end
+
+
+	def initAnnualLeaveInfoWithoutLastYear(employee)
+		employee.last_year_left = 0.0
+		employee.statutory = 0.0
+		employee.bonus = 0.0
+
+		this_year_i = Time.now.year.to_i
+		last_year_i = this_year_i - 1
+		employee.extra = employee.annual_leave_change_records.where(
+			kind: AnnualLeaveChangeRecord::KIND_EXTRA, which_year: this_year_i).sum(:number)
+		employee.used = employee.annual_leave_change_records.where(
+			kind: AnnualLeaveChangeRecord::KIND_USED,  which_year: this_year_i).sum(:number)
 		employee.statutory = getStatutory
 		employee.bonus = getBonus(employee)
 		employee.remain = employee.last_year_left + employee.statutory + employee.extra + employee.bonus - employee.used
