@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
 	get 'query' => 'query#index'
 
+  get 'settings' => 'settings#index'
+  patch 'settings' => 'settings#update'
+
 	get 'employees_manage' => 'employees_manage#index'
 	post 'employees_manage' => 'employees_manage#create'
 
