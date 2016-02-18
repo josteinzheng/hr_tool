@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'settings' => 'settings#index'
   patch 'settings' => 'settings#update'
 
+	delete 'clear_employees' => 'employees_manage#clear'
+
 	get 'employees_manage' => 'employees_manage#index'
 	post 'employees_manage' => 'employees_manage#create'
 

@@ -41,3 +41,6 @@
     </div>
     <div class="buttons"><%= f.submit "导入" %></div>
 <% end %>
+
+
+<%= link_to '删除所有员工和休假记录', clear_employees_url, method: :delete, data: { confirm: '你要再好好想想吗?' } %>

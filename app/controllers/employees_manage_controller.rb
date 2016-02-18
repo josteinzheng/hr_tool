@@ -13,4 +13,12 @@ class EmployeesManageController < ApplicationController
 			render :index
 		end
 	end
+
+	def clear
+		if AnnualLeaveChangeRecord.delete_all && Employee.delete_all
+			redirect_to root_url
+		else
+			render :index
+		end
+	end
 end
