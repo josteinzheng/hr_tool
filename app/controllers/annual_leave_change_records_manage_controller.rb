@@ -13,4 +13,13 @@ class AnnualLeaveChangeRecordsManageController < ApplicationController
 			render :index
 		end
 	end
+
+	def export
+		from_date = params[:export_params][:from_date]
+		to_date = params[:export_params][:to_date]
+		@records = AnnualLeaveChangeRecord.all.where(kind: AnnualLeaveChangeRecord::KIND_USED, when: from_date..to_date)
+		respond_to do |format|
+			format.xls
+		end
+	end
 end

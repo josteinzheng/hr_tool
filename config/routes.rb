@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'records_manage' => 'annual_leave_change_records_manage#index'
   post 'records_manage' => 'annual_leave_change_records_manage#import'
+  get 'records_export' => 'annual_leave_change_records_manage#export'
 
 	get 'login' => 'sessions#new'
 	post 'login' => 'sessions#create'
