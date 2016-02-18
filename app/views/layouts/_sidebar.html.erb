@@ -2,23 +2,16 @@
     <header class="templatemo-site-header">
         <h1>小助手</h1>
     </header>
-    <!-- Search box -->
-    <form class="templatemo-search-form" role="search">
-        <div class="input-group">
-            <button type="submit" class="fa fa-search"></button>
-            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-        </div>
-    </form>
     <div class="mobile-menu-icon">
         <i class="fa fa-bars"></i>
     </div>
     <nav class="templatemo-left-nav">
         <ul>
-            <li><a href="/" class="active"><i class="fa fa-fw"></i>OVERVIEW</a></li>
-            <li><a href="/records"><i class="fa fa-fw"></i>ANNUAL LEAVE</a></li>
-            <li><a href="/employees_manage"><i class="fa fa-fw"></i>MANAGE EMPLOYEES</a></li>
+            <li><a href="/"><i class="fa fa-fw"></i>员工信息列表</a></li>
+            <li><a href="/records"><i class="fa fa-fw"></i>年假变更记录列表</a></li>
+            <li><a href="/employees_manage"><i class="fa fa-fw"></i>员工管理</a></li>
             <li><a href="/records_manage"><i class="fa fa-fw"></i>休假记录管理</a></li>
-            <li><a href="/settings"><i class="fa fa-fw"></i>SETTINGS</a></li>
+            <li><a href="/settings"><i class="fa fa-fw"></i>设置</a></li>
             <li>
                 <%= link_to logout_path, method: "delete" do %>
                 <i class="fa fa-fw"></i>Log Out

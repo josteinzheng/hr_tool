@@ -1,4 +1,4 @@
-<h1>联系人导入</h1>
+<h1>员工信息管理</h1>
 
 <p>导入文件格式为excel表格，表格第一行为表头，表格格式如下(括号及括号中内容为说明)：</p>
 
@@ -23,6 +23,7 @@
     </tbody>
 </table>
 
+<p>
 
 <%= form_for @employee_import, url: employees_manage_path do |f| %>
     <% if @employee_import.errors.any? %>
@@ -36,11 +37,10 @@
         </div>
     <% end %>
 
-    <div class="field">
-        <%= f.file_field :file %>
-    </div>
-    <div class="buttons"><%= f.submit "导入" %></div>
+    <%= f.file_field :file %>
+    <%= f.submit "导入" %>
 <% end %>
 
+</p>
 
 <%= link_to '删除所有员工和休假记录', clear_employees_url, method: :delete, data: { confirm: '你要再好好想想吗?' } %>

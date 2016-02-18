@@ -82,7 +82,7 @@ footer { padding: 15px; }
 
 /* 2. Left Column
 -----------------------------*/
-.templatemo-sidebar { width: 300px; }
+.templatemo-sidebar { width: 200px; }
 .square {
 	width: 25px;
 	height: 25px;
@@ -180,7 +180,7 @@ footer { padding: 15px; }
 .templatemo-left-nav a {
 	color: #e9e9ea;
 	display: block;
-	padding: 30px;
+	padding: 30px 10px;
 	transition: all 0.3s ease;
 }
 .templatemo-left-nav .fa { margin-right: 15px; }
@@ -589,7 +589,7 @@ input[type="radio"]:checked + label span {
 
 @media screen and (max-width: 992px) {
 	nav li { font-size: 1em; }
-	.templatemo-left-nav a { padding: 15px 10px; }	
+	.templatemo-left-nav a { padding: 15px 10px; }
 	.templatemo-content-container {	padding: 10px; }
 }
 @media only screen and (min-width: 768px) {
