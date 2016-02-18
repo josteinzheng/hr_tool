@@ -112,7 +112,8 @@ class Employee < ActiveRecord::Base
 	#公司福利年假
 	def getBonus(employee)
 		now = Time.now
-		0.5 * (now.year - employee.hiredate.year - 1)
+		bonus = 0.5 * (now.year - employee.hiredate.year - 1)
+		bonus < 0 ? 0 : bonus
 	end
 
 end
