@@ -75,11 +75,7 @@ class Employee < ActiveRecord::Base
 		employee.remain = employee.last_year_left + employee.statutory + employee.extra + employee.bonus - employee.used
 	end
 
-	DAY_ANNUAL_LEAVE_CALCULATE_FROM = Time.new(Time.now.year, 1, 1)
-	# 根据开始工作时间和入职日期计算法定年假
-	# （导入的原始数据是当前工龄，需要换算成开始工作时间再进行计算，存入的也是开始工作时间）
-	def getStatutory
-		return 0.0 if in_three_months
+	def getStatutoryBase
 		seniority = self.seniority.to_i
 		if seniority >= 1 && seniority < 10 #累计工作满一年不满10年的
 			statutory_base = 5
@@ -90,6 +86,14 @@ class Employee < ActiveRecord::Base
 		else
 			statutory_base = 0
 		end
+		statutory_base
+	end
+
+	DAY_ANNUAL_LEAVE_CALCULATE_FROM = Time.new(Time.now.year, 1, 1)
+	# 根据开始工作时间和入职日期计算法定年假
+	# （导入的原始数据是当前工龄，需要换算成开始工作时间再进行计算，存入的也是开始工作时间）
+	def getStatutory
+		statutory_base = getStatutoryBase
 
 		elapseddays = elapsed_days(self.hiredate > DAY_ANNUAL_LEAVE_CALCULATE_FROM ?
 			                           self.hiredate : DAY_ANNUAL_LEAVE_CALCULATE_FROM,
