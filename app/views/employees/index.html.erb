@@ -39,10 +39,14 @@
                         <% end %>
                         <td><%= employee.statutory %></td>
                         <td><%= employee.extra %>
-                            <%= link_to ' +', new_annual_leave_change_record_url(:employee_id => employee.id)  %></td>
+                            <%= link_to ' +', new_annual_leave_change_record_url(
+                                                    kind: AnnualLeaveChangeRecord::KIND_EXTRA,
+                                                    employee_id: employee.id)  %></td>
                         <td><%= employee.bonus %></td>
                         <td><%= employee.used %>
-                            <%= link_to ' +', new_annual_leave_change_record_url(:employee_id => employee.id)  %></td>
+                            <%= link_to ' +', new_annual_leave_change_record_url(
+                                                    kind: AnnualLeaveChangeRecord::KIND_USED,
+                                                    employee_id: employee.id)  %></td>
                         <td><%= employee.remain %></td>
                     </tr>
                 <% end %>

@@ -7,6 +7,7 @@ class AnnualLeaveChangeRecordsController < ApplicationController
 	def new
 		employee = Employee.find_by_id(params[:employee_id])
 		@record = employee.annual_leave_change_records.build
+		@record.kind = params[:kind]
 	end
 
 	def create
