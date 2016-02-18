@@ -17,35 +17,35 @@
             <td><%= @employee.staffno %></td>
         </tr>
         <tr>
-            <td>工龄</td>
-            <td><%= @employee.seniority %></td>
+            <td>基准年假</td>
+            <td><%= @employee.getStatutoryBase %></td>
         </tr>
         <tr>
             <td>入职日期</td>
             <td><%= @employee.hiredate.strftime("%Y-%m-%d") %></td>
         </tr>
         <tr>
-            <td>去年剩余</td>
+            <td>2015剩余年假</td>
             <td><%= @employee.last_year_left %></td>
         </tr>
         <tr>
-            <td>法定</td>
+            <td>2016法定年假</td>
             <td><%= @employee.statutory %></td>
         </tr>
         <tr>
-            <td>额外</td>
+            <td>2016奖励年假</td>
             <td><%= @employee.extra %>
         </tr>
         <tr>
-            <td>奖励</td>
+            <td>2016福利年假</td>
             <td><%= @employee.bonus %></td>
         </tr>
         <tr>
-            <td>已休</td>
+            <td>已休年假</td>
             <td><%= @employee.used %>
         </tr>
         <tr>
-            <td>剩余</td>
+            <td>剩余年假</td>
             <td><%= @employee.remain %></td>
         </tr>
     <% elsif @empty_param %>
