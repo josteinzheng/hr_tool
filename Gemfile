@@ -34,4 +34,6 @@ end
 
 group :production do
 	gem 'rails_12factor', '0.0.2'
+	gem 'therubyracer', '0.12.2'
+	gem 'unicorn', '4.8.3'
 end
