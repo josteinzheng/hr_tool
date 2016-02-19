@@ -6,4 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+Setting.create(includeLastYear: false)
+
+PASSWORD = ENV['RRD_HR_PASSWORD']
+User.create(name: 'rrd-hr', email: 'rrd-hr@renrendai.com', password: PASSWORD, password_confirmation: PASSWORD)
