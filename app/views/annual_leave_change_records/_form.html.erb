@@ -17,7 +17,7 @@
     </div>
     <div class="field">
         <%= f.label '日期' %><br>
-        <%= f.text_field :when %>
+        <%= f.date_field :when, value: DateTime.now.strftime("%Y-%m-%d") %>
     </div>
     <div class="field">
         <%= f.label '天数' %><br>
