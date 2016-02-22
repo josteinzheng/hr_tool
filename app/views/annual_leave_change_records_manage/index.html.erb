@@ -40,7 +40,6 @@
     <div class="buttons"><%= f.submit "导入" %></div>
 <% end %>
 
-<%= link_to '导出休假记录', records_export_path(format: "xls") %>
 <%= form_for :export_params, url: records_export_path(format: "xls"), method: 'get' do |f| %>
 <% last_month_first_day = DateTime.now.prev_month.at_beginning_of_month %>
 <% last_month_last_day = DateTime.now.prev_month.at_end_of_month %>
