@@ -24,7 +24,10 @@
                 <tbody>
                 <% @records.each do |record| %>
                     <tr>
-                        <td><%= record.employee.name  %></td>
+                        <td>
+                            <%= record.employee.name  %>
+                            <%= link_to ' (delete)', annual_leave_change_record_path(record), method: :delete, data: { confirm: '确认删除吗?' } %>
+                        </td>
                         <td><%= record.employee.staffno %></td>
                         <td>
                             <%= record.kind == AnnualLeaveChangeRecord::KIND_EXTRA ? "额外" : "休假" %>

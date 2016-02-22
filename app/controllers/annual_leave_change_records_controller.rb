@@ -47,6 +47,13 @@ class AnnualLeaveChangeRecordsController < ApplicationController
 	end
 
 	def destroy
+		@record = AnnualLeaveChangeRecord.find_by_id(params[:id])
+		if @record.destroy
+			flash[:success] = "成功删除#{@record.employee.name}的休假记录"
+		else
+			flash[:warning] = "删除失败"
+		end
+		redirect_to annual_leave_change_records_path;
 	end
 
 
