@@ -30,7 +30,9 @@
                 <tbody>
                 <% @employees.each do |employee| %>
                     <tr>
-                        <td><%= employee.name  %></td>
+                        <td>
+                            <%= link_to  employee.name, edit_employee_path(employee)  %>
+                        </td>
                         <td><%= employee.staffno %></td>
                         <td><%= employee.seniority %></td>
                         <td><%= employee.hiredate.strftime("%Y-%m-%d") %></td>

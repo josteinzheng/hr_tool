@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label '入职日期' %><br>
-    <%= f.text_field :hiredate %>
+    <%= f.text_field :hiredate, value: @employee.hiredate.strftime("%Y-%m-%d") %>
   </div>
     <div class="field">
         <%= f.label '去年剩余' %><br>
