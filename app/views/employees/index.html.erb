@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="col-1"><%= link_to ' 添加新员工', new_employee_url  %>
+<div class="col-1"><%= link_to ' 添加新员工', new_employee_path  %>
     <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
         <i class="fa fa-times"></i>
 
@@ -39,12 +39,12 @@
                         <% end %>
                         <td><%= employee.statutory %></td>
                         <td><%= employee.extra %>
-                            <%= link_to ' +', new_annual_leave_change_record_url(
+                            <%= link_to ' +', new_annual_leave_change_record_path(
                                                     kind: AnnualLeaveChangeRecord::KIND_EXTRA,
                                                     employee_id: employee.id)  %></td>
                         <td><%= employee.bonus %></td>
                         <td><%= employee.used %>
-                            <%= link_to ' +', new_annual_leave_change_record_url(
+                            <%= link_to ' +', new_annual_leave_change_record_path(
                                                     kind: AnnualLeaveChangeRecord::KIND_USED,
                                                     employee_id: employee.id)  %></td>
                         <td><%= employee.remain %></td>

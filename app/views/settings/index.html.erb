@@ -1,5 +1,5 @@
 
-<%= form_for(:settings, url: settings_url, method: :patch) do |f| %>
+<%= form_for(:settings, url: settings_path, method: :patch) do |f| %>
 <%= f.label :includeLastYear, class: "checkbox inline" do  %>
     <%= f.check_box :includeLastYear, checked: @settings.includeLastYear %>
     <span>是否包含上年年假记录</span>
