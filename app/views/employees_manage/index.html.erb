@@ -43,4 +43,6 @@
 
 </p>
 
+<%= link_to '导出所有员工年假信息', employees_export_path(format: 'xls'), method: :get %><br><br><br>
+
 <%= link_to '删除所有员工和休假记录', clear_employees_path, method: :delete, data: { confirm: '你要再好好想想吗?' } %>

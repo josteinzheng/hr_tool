@@ -21,4 +21,11 @@ class EmployeesManageController < ApplicationController
 			render :index
 		end
 	end
+
+	def export
+		@employees = Employee.all
+		respond_to do |format|
+			format.xls
+		end
+	end
 end

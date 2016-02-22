@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 	get 'employees_manage' => 'employees_manage#index'
 	post 'employees_manage' => 'employees_manage#create'
+  get 'employees_export' => 'employees_manage#export'
 
   get 'records' => 'annual_leave_change_records#index'
 

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="员工年假信息">
+        <Table>
+            <Row>
+                <Cell><Data ss:Type="String">姓名</Data></Cell>
+                <Cell><Data ss:Type="String">员工号</Data></Cell>
+                <Cell><Data ss:Type="String">工龄</Data></Cell>
+                <Cell><Data ss:Type="String">入职日期</Data></Cell>
+                <Cell><Data ss:Type="String">法定</Data></Cell>
+                <Cell><Data ss:Type="String">奖励</Data></Cell>
+                <Cell><Data ss:Type="String">福利</Data></Cell>
+                <Cell><Data ss:Type="String">已休</Data></Cell>
+                <Cell><Data ss:Type="String">剩余</Data></Cell>
+            </Row>
+            <% @employees.each do |employee| %>
+                <Row>
+                    <Cell><Data ss:Type="String"><%= employee.name %></Data></Cell>
+                    <Cell><Data ss:Type="String"><%= employee.staffno %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= employee.seniority %></Data></Cell>
+                    <Cell><Data ss:Type="String"><%= employee.hiredate.strftime("%Y-%m-%d") %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= employee.statutory %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= employee.extra %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= employee.bonus %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= employee.used %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= employee.remain %></Data></Cell>
+                </Row>
+            <% end %>
+        </Table>
+    </Worksheet>
+</Workbook>
