@@ -28,7 +28,7 @@
       <% if @employee.hiredate.nil? %>
           <%= f.text_field :hiredate %>
       <% else %>
-          <%= f.text_field :hiredate, @employee.hiredate.strftime("%Y-%m-%d") %>
+          <%= f.text_field :hiredate, value: @employee.hiredate.strftime("%Y-%m-%d") %>
       <% end %>
   </div>
     <div class="field">
