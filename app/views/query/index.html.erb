@@ -10,7 +10,7 @@
     <% if !@employee.nil? %>
         <tr>
             <td>姓名</td>
-            <td><%= @employee.name %></td>
+            <td><%= "**" + @employee.name[-1] %></td>
         </tr>
         <tr>
             <td>员工号</td>
@@ -19,10 +19,6 @@
         <tr>
             <td>基准年假</td>
             <td><%= @employee.getStatutoryBase %></td>
-        </tr>
-        <tr>
-            <td>入职日期</td>
-            <td><%= @employee.hiredate.strftime("%Y-%m-%d") %></td>
         </tr>
         <tr>
             <td>2015剩余年假</td>
