@@ -25,7 +25,10 @@ class AnnualLeaveChangeRecordsController < ApplicationController
 			record.which_year = this_year_i
 			record.save
 		elsif record.kind == AnnualLeaveChangeRecord::KIND_USED
-			if last_year_remain <= 0 #使用今年休假记录
+			if !Setting.first.includeLastYear #上年剩余年假清零后新休假记录都记为当年的
+				record.which_year = this_year_i;
+				record.save
+			elsif last_year_remain <= 0 #使用今年休假记录
 				record.which_year = this_year_i
 				record.save
 			elsif last_year_remain < record.number #休假记录拆分成两条
