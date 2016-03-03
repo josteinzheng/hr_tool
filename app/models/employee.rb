@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
 	has_many :annual_leave_change_records, dependent: :destroy
+	default_scope -> { order(staffno: :ASC) }
 
 	validates :name, presence: true
 	validates :staffno, uniqueness: true,
