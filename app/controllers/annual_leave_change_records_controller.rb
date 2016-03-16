@@ -13,7 +13,7 @@ class AnnualLeaveChangeRecordsController < ApplicationController
 	def create
 		record = AnnualLeaveChangeRecord.new(record_params)
 		recordBelongsToWhichYear(record)
-		redirect_to annual_leave_change_records_url
+		redirect_to employees_url
 	end
 
 ##年假变动记录属于哪年，在年假清零时用用来统计
