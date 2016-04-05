@@ -11,6 +11,7 @@
                 <Cell><Data ss:Type="String">员工号</Data></Cell>
                 <Cell><Data ss:Type="String">日期</Data></Cell>
                 <Cell><Data ss:Type="String">天数</Data></Cell>
+                <Cell><Data ss:Type="String">使用哪年年假</Data></Cell>
             </Row>
             <% @records.each do |record| %>
                 <% employee = record.employee %>
@@ -19,6 +20,7 @@
                     <Cell><Data ss:Type="String"><%= employee.staffno %></Data></Cell>
                     <Cell><Data ss:Type="String"><%= record.when.strftime("%Y-%m-%d") %></Data></Cell>
                     <Cell><Data ss:Type="Number"><%= record.number %></Data></Cell>
+                    <Cell><Data ss:Type="Number"><%= record.which_year %></Data></Cell>
                 </Row>
             <% end %>
         </Table>
